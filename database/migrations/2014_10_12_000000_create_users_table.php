@@ -26,8 +26,11 @@ return new class extends Migration
             $table->string('password');
             /* Internal Information */
             $table->timestamp('email_verified_at')->nullable();
-            $table->double('saldo',10,4)->nullable();;
+            $table->double('saldo',10,4)->nullable();
             $table->string('foto_perfil')->nullable();
+
+            $table->boolval('excliente')->nullable();
+
             /* Aditional MT */
             $table->rememberToken();
             $table->timestamps();
