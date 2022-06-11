@@ -4,23 +4,38 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        
+        <title>{{ config('app.name') }}</title>
 
         <!-- Styles  -->
             <link rel="stylesheet" href="{{asset('css/app.css')}}">
+            <style>
+                .carousel-item
+                {
+                    height: 100vh;
+                    min-height: 300px;
+                    background: no-repeat center center scroll;
+                    background-size: cover;
+                }
 
+                .navbar-google
+                {
+                    box-shadow: 0 2px 6px 0 rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0; 
+                    background-color: #fff;
+                }
+            </style>
+        
         <!-- Scripts -->
             <script src="{{ asset('js/app.js') }}" defer></script>      
     </head>
 
     <body class="antialiased">
-        <nav class="navbar bg-light fixed-top" style="box-shadow: 0 2px 6px 0 rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0; background-color: #fff">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="{{asset('img/mg_logo.png')}}" alt="" width="200" height="50" >
-                </a>
-            </div>
-
+        
+        <nav class="navbar bg-light fixed-top navbar-google" ba>
+            <a class="mx-3" href="{{ url('/') }}">
+                <img src="{{asset('img/mg_logo.png')}}" alt="" width="170" height="40" >
+            </a>
+            
             @if (Route::has('login'))
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     @auth
@@ -29,14 +44,12 @@
                         <a href="{{ route('user.login') }}" class="btn btn-outline-primary">Log in</a>
 
                         @if (Route::has('user.register'))
-                            <a href="{{ route('user.register') }}" class="btn btn-primary" >Register</a>
+                            <a href="{{ route('user.register') }}" class="btn btn-primary me-2" >Register</a>
                         @endif
                     @endauth
                     </div>
             @endif
-         
         </nav>
-
 
         <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -47,7 +60,7 @@
             
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="{{ asset('img/welcome/11.jpg') }}" class="d-block w-100" alt="...">
+                    <img src="{{ asset('img/welcome/1.jpg') }}" class="d-block w-100" alt="google">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>First slide label</h5>
                         <p>Some representative placeholder content for the first slide.</p>
@@ -81,5 +94,6 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
+        
     </body>
 </html>

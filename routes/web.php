@@ -34,6 +34,9 @@ Route::prefix('user')->name('user.')->group(function()
     Route::middleware(['auth','PreventBackHistory'])->group(function () 
     {
         Route::view('/home', 'dashboard.user.home')->name('home');
+
+        Route::view('/recarga', 'dashboard.user.recarga')->name('recarga');
+
         Route::post('/logout', [UserController::class,'logout'])->name('logout');
     });
 });
@@ -45,12 +48,23 @@ Route::prefix('admin')->name('admin.')->group(function()
         Route::view('/login', 'dashboard.admin.login')->name('login');
         //Route::view('/register', 'dashboard.user.register')->name('register');
         //Route::post('/create', [UserController::class,'create'])->name('create');
+        
         Route::post('/check', [AdminController::class,'check'])->name('check');
     });
 
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function () 
     {
         Route::view('/home', 'dashboard.admin.home')->name('home');
+        Route::view('/', 'dashboard.admin.home');
+        //Route::get('/edit', [AdminController::class,'edit']);
+        Route::get('{id}/add-admin', [AdminController::class,'edit'])->name('edit');
+        //Route::post('/edit', [AdminController::class,'edit'])->name('edit');
+        // Route::view('/edit', 'dashboard.admin.edit')->name('edit');
+        Route::post('/create', [AdminController::class,'create'])->name('create');
+        
         Route::post('/logout', [AdminController::class,'logout'])->name('logout');
+        
+        //Route::view('/invitacion', 'dashboard.emails.invitacion')->name('invitacion');
     });
 });
+
