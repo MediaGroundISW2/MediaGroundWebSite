@@ -34,9 +34,12 @@ Route::prefix('user')->name('user.')->group(function()
     Route::middleware(['auth','PreventBackHistory'])->group(function () 
     {
         Route::view('/home', 'dashboard.user.home')->name('home');
-
-        Route::view('/recarga', 'dashboard.user.recarga')->name('recarga');
-
+        Route::view('/emailss', 'dashboard.emails.ticket')->name('ticket');
+        
+        Route::post('/make_recarga', [UserController::class,'make_recarga'])->name('make_recarga');
+        
+        Route::get('/recarga', [UserController::class,'recarga'])->name('recarga');
+        
         Route::post('/logout', [UserController::class,'logout'])->name('logout');
     });
 });
