@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Models\Categoria;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -71,3 +72,17 @@ Route::prefix('admin')->name('admin.')->group(function()
     });
 });
 
+Route::resource('/categorias', App\Http\Controllers\CategoriaController::class);
+
+Route::resource('/autors', App\Http\Controllers\AutorController::class);
+
+Route::resource('/contenidos', App\Http\Controllers\ContenidoController::class);
+
+Route::resource('/promociones', App\Http\Controllers\PromocioneController::class);
+
+
+
+Route::get('/viewTree', function () {
+    $categories = Categoria::tree()->get()->toTree();
+    return view('categoria.viewTree',['categories' => $categories]);
+});

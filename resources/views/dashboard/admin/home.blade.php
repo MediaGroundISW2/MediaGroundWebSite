@@ -151,36 +151,36 @@
                                 </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <button type="button" class="btn-icon-clipboard">
+                                <a href="{{ url('/contenidos') }}" type="button" class="btn-icon-clipboard">
                                 <div>
                                     <i class="ni ni-archive-2"></i>
                                     <span>Administrar de Contenidos</span>
                                 </div>
-                                </button>
+                              </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <button type="button" class="btn-icon-clipboard" >
+                                <a href="{{ url('/categorias') }}" type="button" class="btn-icon-clipboard" >
                                 <div>
                                     <i class="ni ni-collection"></i>
                                     <span>Categorías</span>
                                 </div>
-                                </button>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <button type="button" class="btn-icon-clipboard">
+                                <a href="{{ url('/promociones') }}" type="button" class="btn-icon-clipboard">
                                 <div>
                                     <i class="ni ni-trophy"></i>
                                     <span>Administrar de Promociones</span>
                                 </div>
-                                </button>
+                              </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
-                                <button type="button" class="btn-icon-clipboard">
+                                <a href="{{ url('/autors') }}" type="button" class="btn-icon-clipboard">
                                 <div>
                                     <i class="ni ni-badge"></i>
                                     <span>Autores</span>
                                 </div>
-                                </button>
+                                </a>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <button type="button" class="btn-icon-clipboard">
